@@ -1,0 +1,11 @@
+{
+    "Sneakers": [
+        {
+            "id": 1,
+            "name": "Adidas Yeezy Boost 350",
+            "image": "https://i.imgur.com/ZNk1dfx.jpg",
+            "likes": 0,
+            "Description": "Yeezy's"
+        }
+    ]
+}
