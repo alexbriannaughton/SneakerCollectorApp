@@ -1,3 +1,9 @@
 body {
     text-align: center;
 }
+
+.sneaker-card {
+
+  border: grey solid 1px;
+}
+
