@@ -1,25 +1,17 @@
 {
-    "Sneakers": [
-        {
-            "id": 1,
-            "username": "Jmckinnon10",
-            "image": "https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.imgur.com%2FZNk1dfxh.jpg",
-            "likes": 0 ,
-            "description": "Yeezy's"
-        },
-        {
-            "id": 1,
-            "username": "Jmckinnon10",
-            "image": "https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.imgur.com%2FZNk1dfxh.jpg",
-            "likes": 0 ,
-            "description": "Yeezy's"
-        },
-        {
-            "id": 1,
-            "username": "Jmckinnon10",
-            "image": "https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.imgur.com%2FZNk1dfxh.jpg",
-            "likes": 0 ,
-            "description": "Yeezy's"
-        }
-    ]
+  "Sneakers": [
+    {
+      "id": 1,
+      "username": "Jmckinnon10",
+      "image": "https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.imgur.com%2FZNk1dfxh.jpg",
+      "likes": 0,
+      "description": "Yeezy's"
+    },
+    {
+      "name": "kjehkjje",
+      "image": "week",
+      "description": "khefhukw",
+      "id": 2
+    }
+  ]
 }
