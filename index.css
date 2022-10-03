@@ -3,14 +3,66 @@ body {
 }
 
 .sneaker-card {
-  width: 40rem;
-  border: grey solid 1px;
+  width: 35rem;
+  
   display: inline-block;
   margin: 1rem;
+  /* margin-left: 2%;
+  margin-right: 2%; */
+  outline: ridge;
+  outline-color: purple;
+  outline-width: 10px;
+  border-radius: 2%;
+}
+.sneaker-card:hover {
+  
 }
 
 .sneaker-pic {
   justify-self: center;
   height: 18rem;
   width: auto;
+  box-shadow: 3px 10px 7px 0 grey;
+  padding: 0;
+  transition: .5s;
+}
+
+.sneaker-pic:hover {
+  transition: .5s;
+  box-shadow: 3px 10px 20px 0 green;
+  padding: 0;
+  cursor: crosshair;
+}
+
+.userName-text {
+  font-family:'Courier New', Courier, monospace;
+  font-size: 1.2em;
+}
+
+.desc-text {
+  font-family:'Courier New', Courier, monospace;
+  font-style: italic;
+  font-size: .8em;
+}
+
+p {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.likeButton {
+  background-color: rgb(173, 255, 47);
+  border-radius: 50%;
+  transition: .5s;
+}
+
+.likeButton:hover {
+  cursor: pointer;
+  background-color: rgb(223, 253, 178);
+  transition: .5s;
+}
+
+.likeButton:active {
+  color: white;
+  background-color: white;
+  transition: .5s;
 }

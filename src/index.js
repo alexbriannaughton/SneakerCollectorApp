@@ -21,9 +21,8 @@ const listenForFormSubmit = () => {
     const sneakerImage = e.target[1].value;
     const description = e.target[2].value
     const sneakerLikes = 0
-
     const newSneaker = {
-      name: userName,
+      username: userName,
       image: sneakerImage,
       description: description,
       likes: sneakerLikes
@@ -57,10 +56,14 @@ function makeSneakerCard(sneaker) {
 
   sneakerCard.className = "sneaker-card"
   imageUrl.className = 'sneaker-pic'
+  userName.className = 'userName-text'
+  sneakerDesc.className = 'desc-text'
+  likeButton.className = 'likeButton'
 
-  likeButton.textContent = "Like this shoe"
-  userName.textContent = sneaker.username;
+  likeButton.textContent = "s~m~a~s~h"
+  userName.textContent = `${sneaker.username} posted their kicks:`;
   imageUrl.src = sneaker.image;
+  imageUrl.alt = `${userName.textContent} ${sneaker.description}`
   sneakerDesc.textContent = sneaker.description;
   sneakerLikes.textContent = `likes: ${sneaker.likes}`
 
