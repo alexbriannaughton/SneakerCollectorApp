@@ -7,3 +7,8 @@ body {
   border: grey solid 1px;
 }
 
+.sneaker-pic {
+  justify-self: center;
+  height: 18rem;
+  width: auto;
+}

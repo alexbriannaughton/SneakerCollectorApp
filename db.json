@@ -3,15 +3,23 @@
     {
       "id": 1,
       "username": "Jmckinnon10",
-      "image": "https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.imgur.com%2FZNk1dfxh.jpg",
-      "likes": 0,
+      "image": "https://i.imgur.com/ZNk1dfx.jpg",
+      "likes": 3,
       "description": "Yeezy's"
     },
     {
-      "name": "kjehkjje",
-      "image": "week",
-      "description": "khefhukw",
-      "id": 2
+      "id": 2,
+      "username": "lifelonglex2020",
+      "image": "https://i.imgur.com/3bLSkZV.jpg",
+      "likes": 0,
+      "description": "CarrotsXCrocs collab... dripping in Jibbitz"
+    },
+    {
+      "id": 3,
+      "username": "lifelonglex2020",
+      "image": "https://i.imgur.com/VxE1sm0.jpg",
+      "likes": 1,
+      "description": "Rollerskates. technically not sneakers"
     }
   ]
 }
