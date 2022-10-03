@@ -1,22 +1,36 @@
 body {
-    text-align: center;
+  text-align: center;
+  background-image: linear-gradient(rgb(251, 251, 251), rgb(231, 255, 223));
+  /* background: linear-gradient(rgba(5, 144, 243, 0.1),
+      rgba(6, 137, 237, 0.1)),
+    /* url('https://img.freepik.com/premium-vector/lines-art-abstract-color-shoes-sneakers-logo-design-vector-icon-symbol-illustration_629573-334.jpg?w=2000'); */
+  height: 125vh; */
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(161, 208, 214);
+}
+
+#logo {
+  width: 325px;
 }
 
 .sneaker-card {
   width: 35rem;
-  
+
   display: inline-block;
   margin: 1rem;
   /* margin-left: 2%;
   margin-right: 2%; */
-  outline: ridge;
+  outline: double;
   outline-color: purple;
   outline-width: 10px;
   border-radius: 2%;
 }
-.sneaker-card:hover {
-  
-}
+
+.sneaker-card:hover {}
 
 .sneaker-pic {
   justify-self: center;
@@ -35,18 +49,18 @@ body {
 }
 
 .userName-text {
-  font-family:'Courier New', Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
   font-size: 1.2em;
 }
 
 .desc-text {
-  font-family:'Courier New', Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
   font-style: italic;
   font-size: .8em;
 }
 
 p {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .likeButton {
@@ -65,4 +79,17 @@ p {
   color: white;
   background-color: white;
   transition: .5s;
+}
+
+h1 {
+  font-family: fantasy;
+  color: red;
+
+
+}
+
+h2 {
+  font-family: cursive;
+  color: green;
+
 }
