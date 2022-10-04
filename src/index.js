@@ -3,9 +3,14 @@ let currentSneaker;
 
 
 
+
 fetch(API)
   .then(resp => resp.json())
   .then(json => renderSneakersToScreen(json))
+
+  
+
+
 
 function renderSneakersToScreen(sneaker) {
   sneaker.forEach(makeSneakerCard)
@@ -78,14 +83,19 @@ function makeSneakerCard(sneaker) {
   sneakerCard.append(userName, imageUrl, sneakerDesc, likeButton, likesContainer);
   sneakerCollection.append(sneakerCard)
 
+
+
   likeButton.addEventListener('click', e => {
     currentSneaker = sneaker
     patchLikes(e, currentSneaker, sneakerLikes)
+    
   })
 };
 
-function patchLikes(e, currentSneaker, sneakerLikes) {
 
+
+function patchLikes(e, currentSneaker, sneakerLikes) {
+  
   const likesPlus = currentSneaker.likes + 1
 
   const config = {
