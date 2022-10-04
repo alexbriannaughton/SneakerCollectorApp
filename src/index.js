@@ -23,6 +23,7 @@ function fetchAndSortSneakers() {
 
 // .then(json => renderSneakersToScreen(json))
 const sneakerCollection = document.querySelector('#sneaker-collection');
+sneakerCollection.className = "fade"
 function renderSneakersToScreen(sneaker) {
   console.log(sneaker)
   sneakerCollection.textContent = ""
@@ -75,7 +76,7 @@ function makeSneakerCard(sneaker) {
   const likeButton = document.createElement('button')
 
 
-
+  sneakerCard.className = "fade"
   sneakerCard.className = "sneaker-card"
   imageUrl.className = 'sneaker-pic'
   userName.className = 'userName-text'
@@ -120,9 +121,6 @@ function patchLikes(e, currentSneaker, sneakerLikes) {
   fetch(`http://localhost:3000/Sneakers/${currentSneaker.id}`, config)
     .then(sneakerLikes.classList.add('fade'))
     .then(sneakerLikes.textContent = `${likesPlus}`)
-    .then(
-      
-    )
     .then(fetchAndSortSneakers)
 }
 fetchAndSortSneakers()
