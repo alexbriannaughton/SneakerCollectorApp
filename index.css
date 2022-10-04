@@ -74,7 +74,7 @@ input {
 }
 
 .sneaker-card {
-  width: 40rem;
+  width: 22rem;
   border: grey solid 1px;
   display: inline-block;
   margin: 1rem;
@@ -84,7 +84,7 @@ input {
 
 .sneaker-pic {
   justify-self: center;
-  height: 18rem;
+  height: 12rem;
   width: auto;
   box-shadow: 3px 10px 7px 0 grey;
   padding: 0;

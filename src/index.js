@@ -25,7 +25,7 @@ function fetchAndSortSneakers() {
 const sneakerCollection = document.querySelector('#sneaker-collection');
 function renderSneakersToScreen(sneaker) {
   console.log(sneaker)
-  // sneakerCollection.textContent = ""
+  sneakerCollection.textContent = ""
   sneaker.forEach(makeSneakerCard)
 };
 
@@ -120,6 +120,9 @@ function patchLikes(e, currentSneaker, sneakerLikes) {
   fetch(`http://localhost:3000/Sneakers/${currentSneaker.id}`, config)
     .then(sneakerLikes.classList.add('fade'))
     .then(sneakerLikes.textContent = `${likesPlus}`)
+    .then(
+      
+    )
     .then(fetchAndSortSneakers)
 }
 fetchAndSortSneakers()
