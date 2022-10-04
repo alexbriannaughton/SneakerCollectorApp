@@ -1,28 +1,31 @@
 const API = 'http://localhost:3000/Sneakers'
 let currentSneaker;
 
-function sortByProperty(property){  
-  return function(b,a){  
-     if(a[property] > b[property])  
-        return 1;  
-     else if(a[property] < b[property])  
-        return -1;  
- 
-     return 0;  
-  }  
+function sortByProperty(property) {
+  return function (b, a) {
+    if (a[property] > b[property])
+      return 1;
+    else if (a[property] < b[property])
+      return -1;
+
+    return 0;
+  }
+}
+function fetchAndSortSneakers() {
+  fetch(API)
+    .then(resp => resp.json())
+    .then(json => {
+      renderSneakersToScreen(json.sort(sortByProperty('likes')))
+    })
 }
 
-fetch(API)
-  .then(resp => resp.json())
-  .then(json=> {
-    renderSneakersToScreen(json.sort(sortByProperty('likes')))
-  })
 
-  // .then(json => renderSneakersToScreen(json))
+
+// .then(json => renderSneakersToScreen(json))
 const sneakerCollection = document.querySelector('#sneaker-collection');
 function renderSneakersToScreen(sneaker) {
   console.log(sneaker)
-  sneakerCollection.textContent = ""
+  // sneakerCollection.textContent = ""
   sneaker.forEach(makeSneakerCard)
 };
 
@@ -60,7 +63,7 @@ const postSneaker = sneaker => {
 }
 
 function makeSneakerCard(sneaker) {
-  
+
 
   const sneakerCard = document.createElement('div')
   const userName = document.createElement('p');
@@ -71,7 +74,7 @@ function makeSneakerCard(sneaker) {
   const likesWord = document.createElement('span')
   const likeButton = document.createElement('button')
 
-  
+
 
   sneakerCard.className = "sneaker-card"
   imageUrl.className = 'sneaker-pic'
@@ -84,11 +87,11 @@ function makeSneakerCard(sneaker) {
   imageUrl.src = sneaker.image;
   imageUrl.alt = `${userName.textContent} ${sneaker.description}`
   sneakerDesc.textContent = sneaker.description;
-  
+
   sneakerLikes.textContent = sneaker.likes
   likesWord.textContent = 'likes: '
   // likesContainer.textContent = `${likesWord} ${sneakerLikes}`
-  likesContainer 
+  likesContainer
   likesContainer.append(likesWord, sneakerLikes)
   sneakerCard.append(userName, imageUrl, sneakerDesc, likeButton, likesContainer);
   sneakerCollection.append(sneakerCard)
@@ -113,11 +116,11 @@ function patchLikes(e, currentSneaker, sneakerLikes) {
       likes: likesPlus
     })
   }
-  
+
   fetch(`http://localhost:3000/Sneakers/${currentSneaker.id}`, config)
     .then(sneakerLikes.classList.add('fade'))
     .then(sneakerLikes.textContent = `${likesPlus}`)
-    .then()
+    .then(fetchAndSortSneakers)
 }
-
+fetchAndSortSneakers()
 listenForFormSubmit();
