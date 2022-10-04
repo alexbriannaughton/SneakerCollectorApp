@@ -50,6 +50,29 @@ body {
   border-radius: 2%;
 }
 
+#submit-button {
+  border-radius: 5px;
+  transition: 0.1s;
+  margin-top: 5px;
+}
+
+#submit-button:hover {
+  background-color: gray;
+  transition: .3s;
+  cursor: pointer;
+}
+
+#submit-button:active {
+  background-color: red;
+  transition: 0s;
+
+}
+
+input {
+  text-align: center;
+  margin-top: 1px;
+}
+
 .sneaker-card {
   width: 40rem;
   border: grey solid 1px;
@@ -116,18 +139,26 @@ h1 {
   width: auto;
 }
 
-h1 {
+/* h1 {
   font-family: cursive;
   color: red;
 
 
-}
+} */
 
 h2 {
-  font-family: cursive;
-  color: green;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(85, 170, 0);
+  font-style: italic;
+  margin-bottom: 5px;
+  margin-top: 0;
 }
 
 ::placeholder {
   text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+input[type="text"] {
+  font-family: 'Courier New', Courier, monospace;
 }

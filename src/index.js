@@ -1,13 +1,28 @@
 const API = 'http://localhost:3000/Sneakers'
 let currentSneaker;
 
-
+function sortByProperty(property){  
+  return function(b,a){  
+     if(a[property] > b[property])  
+        return 1;  
+     else if(a[property] < b[property])  
+        return -1;  
+ 
+     return 0;  
+  }  
+}
 
 fetch(API)
   .then(resp => resp.json())
-  .then(json => renderSneakersToScreen(json))
+  .then(json=> {
+    renderSneakersToScreen(json.sort(sortByProperty('likes')))
+  })
 
+  // .then(json => renderSneakersToScreen(json))
+const sneakerCollection = document.querySelector('#sneaker-collection');
 function renderSneakersToScreen(sneaker) {
+  console.log(sneaker)
+  sneakerCollection.textContent = ""
   sneaker.forEach(makeSneakerCard)
 };
 
@@ -45,7 +60,7 @@ const postSneaker = sneaker => {
 }
 
 function makeSneakerCard(sneaker) {
-  const sneakerCollection = document.querySelector('#sneaker-collection');
+  
 
   const sneakerCard = document.createElement('div')
   const userName = document.createElement('p');
@@ -102,6 +117,7 @@ function patchLikes(e, currentSneaker, sneakerLikes) {
   fetch(`http://localhost:3000/Sneakers/${currentSneaker.id}`, config)
     .then(sneakerLikes.classList.add('fade'))
     .then(sneakerLikes.textContent = `${likesPlus}`)
+    .then()
 }
 
 listenForFormSubmit();
