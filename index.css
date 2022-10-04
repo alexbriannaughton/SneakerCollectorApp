@@ -4,14 +4,34 @@ body {
   /* background: linear-gradient(rgba(5, 144, 243, 0.1),
       rgba(6, 137, 237, 0.1)),
     /* url('https://img.freepik.com/premium-vector/lines-art-abstract-color-shoes-sneakers-logo-design-vector-icon-symbol-illustration_629573-334.jpg?w=2000'); */
-  height: 125vh; 
+  height: 125vh;
   min-height: 500px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: rgb(161, 208, 214);
+  animation: fade;
+  animation-duration: 3s;
 }
+
+
+.fade {
+  animation: fade;
+  animation-duration: 3s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+
 
 #logo {
   width: 325px;
@@ -31,10 +51,10 @@ body {
 }
 
 .sneaker-card {
-width: 40rem;
-border: grey solid 1px;
-display: inline-block;
-margin: 1rem;
+  width: 40rem;
+  border: grey solid 1px;
+  display: inline-block;
+  margin: 1rem;
 }
 
 .sneaker-card:hover {}
@@ -91,14 +111,14 @@ p {
 h1 {
   font-family: fantasy;
   color: red;
-justify-self: center;
-height: 18rem;
-width: auto;
+  justify-self: center;
+  height: 18rem;
+  width: auto;
 }
 
 h1 {
-font-family: cursive;
-color: red;
+  font-family: cursive;
+  color: red;
 
 
 }
@@ -107,4 +127,3 @@ h2 {
   font-family: cursive;
   color: green;
 }
-

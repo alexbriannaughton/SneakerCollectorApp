@@ -51,8 +51,12 @@ function makeSneakerCard(sneaker) {
   const userName = document.createElement('p');
   const imageUrl = document.createElement('img');
   const sneakerDesc = document.createElement('p');
-  const sneakerLikes = document.createElement('p');
+  const likesContainer = document.createElement('p')
+  const sneakerLikes = document.createElement('span')
+  const likesWord = document.createElement('span')
   const likeButton = document.createElement('button')
+
+  
 
   sneakerCard.className = "sneaker-card"
   imageUrl.className = 'sneaker-pic'
@@ -65,9 +69,13 @@ function makeSneakerCard(sneaker) {
   imageUrl.src = sneaker.image;
   imageUrl.alt = `${userName.textContent} ${sneaker.description}`
   sneakerDesc.textContent = sneaker.description;
-  sneakerLikes.textContent = `likes: ${sneaker.likes}`
+  
+  sneakerLikes.textContent = sneaker.likes
+  likesWord.textContent = 'likes: '
+  // likesContainer.textContent = `${likesWord} ${sneakerLikes}`
 
-  sneakerCard.append(userName, imageUrl, sneakerDesc, likeButton, sneakerLikes);
+  likesContainer.append(likesWord, sneakerLikes)
+  sneakerCard.append(userName, imageUrl, sneakerDesc, likeButton, likesContainer);
   sneakerCollection.append(sneakerCard)
 
   likeButton.addEventListener('click', e => {
@@ -77,11 +85,8 @@ function makeSneakerCard(sneaker) {
 };
 
 function patchLikes(e, currentSneaker, sneakerLikes) {
-  console.log(e),
-  console.log(currentSneaker)
 
   const likesPlus = currentSneaker.likes + 1
-  console.log(likesPlus)
 
   const config = {
     method: 'PATCH',
@@ -93,8 +98,10 @@ function patchLikes(e, currentSneaker, sneakerLikes) {
       likes: likesPlus
     })
   }
+  
   fetch(`http://localhost:3000/Sneakers/${currentSneaker.id}`, config)
-    .then(sneakerLikes.textContent = `likes: ${likesPlus}`)
+    .then(sneakerLikes.classList.add('fade'))
+    .then(sneakerLikes.textContent = `${likesPlus}`)
 }
 
 listenForFormSubmit();
