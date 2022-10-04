@@ -105,3 +105,4 @@ function patchLikes(e, currentSneaker, sneakerLikes) {
 }
 
 listenForFormSubmit();
+
