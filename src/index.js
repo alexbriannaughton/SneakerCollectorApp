@@ -78,7 +78,7 @@ function makeSneakerCard(sneaker) {
   sneakerLikes.textContent = sneaker.likes
   likesWord.textContent = 'likes: '
   // likesContainer.textContent = `${likesWord} ${sneakerLikes}`
-
+  likesContainer 
   likesContainer.append(likesWord, sneakerLikes)
   sneakerCard.append(userName, imageUrl, sneakerDesc, likeButton, likesContainer);
   sneakerCollection.append(sneakerCard)
