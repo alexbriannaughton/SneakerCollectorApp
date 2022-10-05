@@ -51,6 +51,9 @@ function makeCrownSneakerCard(sneaker) {
   userName.className = 'userName-text'
   sneakerDesc.className = 'desc-text'
   likeButton.className = 'likeButton'
+  crown.className = 'crown'
+  userName.className = 'username-crown-text'
+  
   
 
   likeButton.textContent = "s~m~a~s~h"
@@ -143,6 +146,7 @@ function makeSneakerCard(sneaker) {
   imageUrl.src = sneaker.image;
   imageUrl.alt = `${userName.textContent} ${sneaker.description}`
   sneakerDesc.textContent = sneaker.description;
+ 
 
   sneakerLikes.textContent = sneaker.likes
   likesWord.textContent = 'likes: '
