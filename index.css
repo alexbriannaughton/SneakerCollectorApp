@@ -165,4 +165,10 @@ input[type="text"] {
 
 img {
   width:100%;
+  
+}
+
+img:hover {
+  transform: scale(1.5);
+  transition: 1s ease;
 }

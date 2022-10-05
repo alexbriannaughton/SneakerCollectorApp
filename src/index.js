@@ -102,22 +102,28 @@ function makeSneakerCard(sneaker) {
       shrinkImg(e.target)
     })
   })
+  // function onClick (e) {
+  //   likeButton.removeEventListener('click', onClick)
+  // }
   likeButton.addEventListener('click', e => {
     currentSneaker = sneaker
+    // onClick(e)
     patchLikes(e, currentSneaker, sneakerLikes)
   })
 };
 
+function enlargeImg(img) {
+  img.style.transform = "scale(2.5)";
+  img.style.transition =
+    "transform 1s ease";
+}
+
 function shrinkImg(img) {
   img.style.transform = "scale(1)";
   img.style.transition =
-    "transform 0.25s ease";
+    "transform 1s ease";
 }
-function enlargeImg(img) {
-  img.style.transform = "scale(2)";
-  img.style.transition =
-    "transform 0.25s ease";
-}
+
 
 function patchLikes(e, currentSneaker, sneakerLikes) {
 
