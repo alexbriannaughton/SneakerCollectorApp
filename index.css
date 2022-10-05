@@ -98,6 +98,10 @@ input {
   cursor: crosshair;
 }
 
+.sneaker-pic-toggle {
+  transform : scale(2.5);
+}
+
 .userName-text {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.2em;
@@ -168,8 +172,8 @@ img {
   
 }
 
-img:not(#logo):hover {
+/* img:not(#logo):hover {
   transform: scale(1.5);
   transition: 1s ease;
   
-}
+} */

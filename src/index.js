@@ -25,9 +25,65 @@ function fetchAndSortSneakers() {
 const sneakerCollection = document.querySelector('#sneaker-collection');
 sneakerCollection.className = "fade"
 function renderSneakersToScreen(sneaker) {
-  console.log(sneaker)
   sneakerCollection.textContent = ""
-  sneaker.forEach(makeSneakerCard)
+  makeCrownSneakerCard(sneaker[0])
+  sneaker.slice(1).forEach(makeSneakerCard)
+};
+
+function makeCrownSneakerCard(sneaker) {
+
+  const sneakerCard = document.createElement('div')
+
+  const crown = document.createElement('p')
+
+  const userName = document.createElement('p');
+  const imageUrl = document.createElement('img');
+  const sneakerDesc = document.createElement('p');
+  const likesContainer = document.createElement('p')
+  const sneakerLikes = document.createElement('span')
+  const likesWord = document.createElement('span')
+  const likeButton = document.createElement('button')
+
+  // imageUrl.onclick = 'enlargeImg(this)'
+  sneakerCard.className = "fade"
+  sneakerCard.className = "sneaker-card"
+  imageUrl.className = 'sneaker-pic'
+  userName.className = 'userName-text'
+  sneakerDesc.className = 'desc-text'
+  likeButton.className = 'likeButton'
+  
+
+  likeButton.textContent = "s~m~a~s~h"
+  userName.textContent = `${sneaker.username} posted their kicks:`;
+  imageUrl.src = sneaker.image;
+  imageUrl.alt = `${userName.textContent} ${sneaker.description}`
+  sneakerDesc.textContent = sneaker.description;
+  crown.textContent = '👑'
+
+  sneakerLikes.textContent = sneaker.likes
+  likesWord.textContent = 'likes: '
+  // likesContainer.textContent = `${likesWord} ${sneakerLikes}`
+  likesContainer
+  likesContainer.append(likesWord, sneakerLikes)
+  sneakerCard.append(crown, userName, imageUrl, sneakerDesc, likeButton, likesContainer);
+  sneakerCollection.append(sneakerCard)
+
+  // imageUrl.addEventListener('click', e => {
+  //   enlargeImg(e.target)
+  //   e.target.addEventListener('click', e => {
+  //     shrinkImg(e.target)
+  //   })
+  // })
+  
+  imageUrl.addEventListener('click', e => {
+    e.target.classList.toggle('sneaker-pic-toggle')
+  })
+
+  likeButton.addEventListener('click', e => {
+    currentSneaker = sneaker
+    // onClick(e)
+    patchLikes(e, currentSneaker, sneakerLikes)
+  })
 };
 
 
@@ -64,7 +120,6 @@ const postSneaker = sneaker => {
 
 function makeSneakerCard(sneaker) {
 
-
   const sneakerCard = document.createElement('div')
   const userName = document.createElement('p');
   const imageUrl = document.createElement('img');
@@ -81,6 +136,7 @@ function makeSneakerCard(sneaker) {
   userName.className = 'userName-text'
   sneakerDesc.className = 'desc-text'
   likeButton.className = 'likeButton'
+  
 
   likeButton.textContent = "s~m~a~s~h"
   userName.textContent = `${sneaker.username} posted their kicks:`;
@@ -96,15 +152,17 @@ function makeSneakerCard(sneaker) {
   sneakerCard.append(userName, imageUrl, sneakerDesc, likeButton, likesContainer);
   sneakerCollection.append(sneakerCard)
 
+  // imageUrl.addEventListener('click', e => {
+  //   enlargeImg(e.target)
+  //   e.target.addEventListener('click', e => {
+  //     shrinkImg(e.target)
+  //   })
+  // })
+  
   imageUrl.addEventListener('click', e => {
-    enlargeImg(e.target)
-    e.target.addEventListener('click', e => {
-      shrinkImg(e.target)
-    })
+    e.target.classList.toggle('sneaker-pic-toggle')
   })
-  // function onClick (e) {
-  //   likeButton.removeEventListener('click', onClick)
-  // }
+
   likeButton.addEventListener('click', e => {
     currentSneaker = sneaker
     // onClick(e)
