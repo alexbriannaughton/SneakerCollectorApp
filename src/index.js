@@ -122,6 +122,7 @@ function shrinkImg(img) {
   img.style.transform = "scale(1)";
   img.style.transition =
     "transform 1s ease";
+  img.style=""
 }
 
 

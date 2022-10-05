@@ -168,7 +168,8 @@ img {
   
 }
 
-img:hover {
+img:not(#logo):hover {
   transform: scale(1.5);
   transition: 1s ease;
+  
 }
