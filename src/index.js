@@ -31,7 +31,6 @@ function renderSneakersToScreen(sneaker) {
 };
 
 
-
 const listenForFormSubmit = () => {
   const form = document.querySelector('form')
   form.addEventListener('submit', e => {
@@ -75,7 +74,7 @@ function makeSneakerCard(sneaker) {
   const likesWord = document.createElement('span')
   const likeButton = document.createElement('button')
 
-
+  // imageUrl.onclick = 'enlargeImg(this)'
   sneakerCard.className = "fade"
   sneakerCard.className = "sneaker-card"
   imageUrl.className = 'sneaker-pic'
@@ -97,11 +96,28 @@ function makeSneakerCard(sneaker) {
   sneakerCard.append(userName, imageUrl, sneakerDesc, likeButton, likesContainer);
   sneakerCollection.append(sneakerCard)
 
+  imageUrl.addEventListener('click', e => {
+    enlargeImg(e.target)
+    e.target.addEventListener('click', e => {
+      shrinkImg(e.target)
+    })
+  })
   likeButton.addEventListener('click', e => {
     currentSneaker = sneaker
     patchLikes(e, currentSneaker, sneakerLikes)
   })
 };
+
+function shrinkImg(img) {
+  img.style.transform = "scale(1)";
+  img.style.transition =
+    "transform 0.25s ease";
+}
+function enlargeImg(img) {
+  img.style.transform = "scale(2)";
+  img.style.transition =
+    "transform 0.25s ease";
+}
 
 function patchLikes(e, currentSneaker, sneakerLikes) {
 
