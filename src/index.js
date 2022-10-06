@@ -23,8 +23,10 @@ function fetchAndSortSneakers() {
 
 // .then(json => renderSneakersToScreen(json))
 const sneakerCollection = document.querySelector('#sneaker-collection');
+const kingCollection = document.querySelector('#king-collection')
 sneakerCollection.className = "fade"
 function renderSneakersToScreen(sneaker) {
+  kingCollection.textContent = ""
   sneakerCollection.textContent = ""
   makeCrownSneakerCard(sneaker[0])
   sneaker.slice(1).forEach(makeSneakerCard)
@@ -47,7 +49,7 @@ function makeCrownSneakerCard(sneaker) {
   // imageUrl.onclick = 'enlargeImg(this)'
   sneakerCard.className = "fade"
   sneakerCard.className = "sneaker-card-king"
-  imageUrl.className = 'sneaker-pic'
+  imageUrl.className = 'sneaker-pic-crown'
   userName.className = 'userName-text'
   sneakerDesc.className = 'desc-text'
   likeButton.className = 'likeButton'
@@ -69,7 +71,7 @@ function makeCrownSneakerCard(sneaker) {
   likesContainer
   likesContainer.append(likesWord, sneakerLikes)
   sneakerCard.append(crown, userName, imageUrl, sneakerDesc, likeButton, likesContainer);
-  sneakerCollection.append(sneakerCard)
+  kingCollection.append(sneakerCard)
 
   // imageUrl.addEventListener('click', e => {
   //   enlargeImg(e.target)

@@ -38,18 +38,28 @@ body {
 }
 
 .sneaker-card-king {
-  width: 22rem;
+  width: 33rem;
 
   display: inline-block;
   margin: 1rem;
   /* margin-left: 2%;
   margin-right: 2%; */
-  outline: ridge;
+  outline: double;
   outline-color: chartreuse;
-  outline-width: 10px;
+  outline-width: 4px;
   border-radius: 2%;
-  background-image: linear-gradient(.33turn, rgba(139, 5, 206, 0), rgb(0, 255, 89))  
+  background-image: linear-gradient(.33turn, rgba(139, 5, 206, 0), rgb(0, 255, 89, .4)) ;
+  transition: 1.3s;
+   
 }
+
+.sneaker-card-king:hover {
+  outline: double;
+  outline-color: rgb(242, 255, 229);
+  outline-width: 4px;
+  border-radius: 2%;
+}
+
 
 .sneaker-card {
   width: 22rem;
@@ -63,7 +73,12 @@ body {
   outline-width: 10px;
   border-radius: 2%;
 }
-
+.sneaker-card:hover{
+  outline:groove;
+  outline-color: chartreuse;
+  outline-width: 10px;
+  border-radius: 2%;
+}
 #submit-button {
   border-radius: 5px;
   transition: 0.1s;
@@ -90,6 +105,22 @@ input {
 
 .crown {
   margin: 0 auto;
+}
+
+.sneaker-pic-crown {
+  justify-self: center;
+  height: 14.5rem;
+  width: auto;
+  box-shadow: 3px 10px 7px 0 grey;
+  padding: 0;
+  transition: .5s;
+}
+
+.sneaker-pic-crown:hover {
+  transition: .5s;
+  box-shadow: 3px 10px 20px 0 green;
+  padding: 0;
+  cursor: crosshair;
 }
 
 .sneaker-pic {
