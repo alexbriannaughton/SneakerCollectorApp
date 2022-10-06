@@ -15,8 +15,16 @@ function fetchAndSortSneakers() {
   fetch(API)
     .then(resp => resp.json())
     .then(json => {
-      renderSneakersToScreen(json.sort(sortByProperty('likes')))
+      
+      for (let i = 0; i < json.length; i++) {
+        json[i].index = i;
+      }
+
+      renderSneakersToScreen(
+        json.sort(sortByProperty('likes'))
+      )
     })
+
 }
 
 
@@ -25,7 +33,11 @@ function fetchAndSortSneakers() {
 const sneakerCollection = document.querySelector('#sneaker-collection');
 const kingCollection = document.querySelector('#king-collection')
 sneakerCollection.className = "fade"
+
+let currentOrder
 function renderSneakersToScreen(sneaker) {
+  currentOrder = sneaker
+  console.log(currentOrder)
   kingCollection.textContent = ""
   sneakerCollection.textContent = ""
   makeCrownSneakerCard(sneaker[0])
@@ -55,8 +67,8 @@ function makeCrownSneakerCard(sneaker) {
   likeButton.className = 'likeButton'
   crown.className = 'crown'
   userName.className = 'username-crown-text'
-  
-  
+
+
 
   likeButton.textContent = "s~m~a~s~h"
   userName.textContent = `${sneaker.username} posted their kicks:`;
@@ -66,6 +78,7 @@ function makeCrownSneakerCard(sneaker) {
   crown.textContent = '👑'
 
   sneakerLikes.textContent = sneaker.likes
+
   likesWord.textContent = 'likes: '
   // likesContainer.textContent = `${likesWord} ${sneakerLikes}`
   likesContainer
@@ -79,7 +92,7 @@ function makeCrownSneakerCard(sneaker) {
   //     shrinkImg(e.target)
   //   })
   // })
-  
+
   imageUrl.addEventListener('click', e => {
     e.target.classList.toggle('sneaker-pic-toggle')
   })
@@ -90,6 +103,8 @@ function makeCrownSneakerCard(sneaker) {
     patchLikes(e, currentSneaker, sneakerLikes)
   })
 };
+
+
 
 
 const listenForFormSubmit = () => {
@@ -141,16 +156,21 @@ function makeSneakerCard(sneaker) {
   userName.className = 'userName-text'
   sneakerDesc.className = 'desc-text'
   likeButton.className = 'likeButton'
-  
+
+  // const sneakerID = sneaker.id
 
   likeButton.textContent = "s~m~a~s~h"
   userName.textContent = `${sneaker.username} posted their kicks:`;
   imageUrl.src = sneaker.image;
   imageUrl.alt = `${userName.textContent} ${sneaker.description}`
   sneakerDesc.textContent = sneaker.description;
- 
+
+
+
 
   sneakerLikes.textContent = sneaker.likes
+  // sneakerLikes.textContent = fetchLikes(`http://localhost:3000/Sneakers/${sneaker.id}`)
+
   likesWord.textContent = 'likes: '
   // likesContainer.textContent = `${likesWord} ${sneakerLikes}`
   likesContainer
@@ -158,19 +178,20 @@ function makeSneakerCard(sneaker) {
   sneakerCard.append(userName, imageUrl, sneakerDesc, likeButton, likesContainer);
   sneakerCollection.append(sneakerCard)
 
+
   // imageUrl.addEventListener('click', e => {
   //   enlargeImg(e.target)
   //   e.target.addEventListener('click', e => {
   //     shrinkImg(e.target)
   //   })
   // })
-  
+
   imageUrl.addEventListener('click', e => {
     e.target.classList.toggle('sneaker-pic-toggle')
   })
-
   likeButton.addEventListener('click', e => {
     currentSneaker = sneaker
+    likeButton.disabled = true
     // onClick(e)
     patchLikes(e, currentSneaker, sneakerLikes)
   })
@@ -186,13 +207,12 @@ function shrinkImg(img) {
   img.style.transform = "scale(1)";
   img.style.transition =
     "transform 1s ease";
-  img.style=""
+  img.style = ""
 }
 
 
 function patchLikes(e, currentSneaker, sneakerLikes) {
 
-  const likesPlus = currentSneaker.likes + 1
 
   const config = {
     method: 'PATCH',
@@ -201,14 +221,25 @@ function patchLikes(e, currentSneaker, sneakerLikes) {
       'Accept': 'application/json'
     },
     body: JSON.stringify({
-      likes: likesPlus
+      likes: currentSneaker.likes + 1
     })
   }
 
   fetch(`http://localhost:3000/Sneakers/${currentSneaker.id}`, config)
     .then(sneakerLikes.classList.add('fade'))
-    .then(sneakerLikes.textContent = `${likesPlus}`)
-    .then(fetchAndSortSneakers)
+    .then(sneakerLikes.textContent = `${currentSneaker.likes + 1}`)
+    // .then(sortSneakersAfterLike(currentOrder))
+  .then(fetchAndSortSneakers)
 }
+
+function sortSneakersAfterLike(currentOrder) {
+  for (let i = 0; i < currentOrder.length; i++)
+    currentOrder[i].index = i;
+
+  renderSneakersToScreen(
+    currentOrder.sort(sortByProperty('likes'))
+  )
+}
+
 fetchAndSortSneakers()
 listenForFormSubmit();
