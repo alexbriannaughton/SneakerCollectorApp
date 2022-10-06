@@ -46,7 +46,7 @@ function makeCrownSneakerCard(sneaker) {
 
   // imageUrl.onclick = 'enlargeImg(this)'
   sneakerCard.className = "fade"
-  sneakerCard.className = "sneaker-card"
+  sneakerCard.className = "sneaker-card-king"
   imageUrl.className = 'sneaker-pic'
   userName.className = 'userName-text'
   sneakerDesc.className = 'desc-text'
