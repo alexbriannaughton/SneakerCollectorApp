@@ -1,5 +1,4 @@
 # SneakerHeads
-Project pitch:<br>
 Sneaker heads is a stylish vanilla js app that allows the user to upload a photo/small profile of their sneakers and vote/like on other user's sneakers.
 
 #### user stories:<br>
